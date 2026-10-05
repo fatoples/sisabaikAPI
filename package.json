@@ -1,16 +1,19 @@
 {
-    "name":"sisabaik-api",
-    "version":"1.0.0",
-    "private":true,
-    "type":"module",
-    "scripts":{
-        "dev":"node --watch server.js",
-        "start":"node server.js"
-    },
-    "engines":{
-        "node":">=22"
-    },
-    "dependencies":{
-        "express":"^5.1.0"
-    }
+  "name": "sisabaik-api",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "db:check": "node --env-file=.env scripts/check-db.js",
+    "db:order": "node --env-file=.env scripts/create-order.js"
+  },
+  "engines": {
+    "node": ">= 22"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
 }
