@@ -4,15 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js",
-    "db:check": "node --env-file=.env scripts/check-db.js",
-    "db:order": "node --env-file=.env scripts/create-order.js"
-  },
+  "dev": "node --env-file=.env --watch server.js",
+  "start": "node --env-file=.env server.js",
+  "db:check": "node --env-file=.env scripts/check-db.js",
+  "db:order": "node --env-file=.env scripts/create-order.js",
+  "api:test": "node scripts/uji-api.js"
+},
   "engines": {
     "node": ">= 22"
   },
   "dependencies": {
+    "dotenv": "^18.0.7",
     "express": "^5.1.0",
     "pg": "^8.16.3"
   }
