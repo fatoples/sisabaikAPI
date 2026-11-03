@@ -1,50 +1,97 @@
+
 import * as data from "../repositories/penawaran.js";
 import {
-  idValid,
-  halamanValid,
-  filterValid,
-  penawaranValid,
+    idValid,
+    halamanValid,
+    filterValid,
+    salah,
 } from "../lib/api.js";
+import { penawaranSesiValid } from "../lib/input-auth.js";
 
 export async function daftar(req, res) {
-  const hasil = await data.daftarPenawaran(
-    filterValid(req.query),
-    halamanValid(req.query),
-  );
+    const filter = filterValid(req.query);
 
-  let dataRespon = hasil.data;
-  if (req.query.status && req.query.kategori && Array.isArray(hasil.data)) {
-    dataRespon = hasil.data[0];
-  }
+    if (
+        (filter.status && filter.status !== "aktif") ||
+        req.query.tersedia === "false"
+    ) {
+        salah(
+            "Katalog publik hanya menampilkan penawaran aktif yang tersedia.",
+        );
+    }
 
-  return res.json({
-    success: true,
-    data: dataRespon,
-    meta: hasil.meta,
-  });
+    const hasil = await data.daftarPenawaran(
+        {
+            ...filter,
+            status: "aktif",
+            tersedia: true,
+        },
+        halamanValid(req.query),
+    );
+
+    return res.json({
+        success: true,
+        ...hasil,
+    });
+}
+
+export async function milikSaya(req, res) {
+    const hasil = await data.daftarPenawaran(
+        filterValid(req.query),
+        halamanValid(req.query),
+        req.pengguna.penyediaId,
+    );
+
+    return res.json({
+        success: true,
+        ...hasil,
+    });
 }
 
 export async function detail(req, res) {
-  const hasil = await data.bacaPenawaran(idValid(req.params.id));
-  return res.json({ success: true, data: hasil });
+    const hasil = await data.bacaPenawaran(
+        idValid(req.params.id),
+        undefined,
+        true,
+    );
+
+    return res.json({
+        success: true,
+        data: hasil,
+    });
 }
 
 export async function buat(req, res) {
-  const hasil = await data.simpanPenawaran(penawaranValid(req.body));
-  return res
-    .status(201)
-    .location(`/api/penawaran/${hasil.id}`)
-    .json({ success: true, data: hasil });
+    const hasil = await data.simpanPenawaran(
+        penawaranSesiValid(req.body, req.pengguna),
+    );
+
+    return res
+        .status(201)
+        .location(`/api/penawaran/${hasil.id}`)
+        .json({
+            success: true,
+            data: hasil,
+        });
 }
 
 export async function ubah(req, res) {
-  const id = idValid(req.params.id);
-  const hasil = await data.simpanPenawaran(penawaranValid(req.body), id);
-  return res.json({ success: true, data: hasil });
+    const hasil = await data.simpanPenawaran(
+        penawaranSesiValid(req.body, req.pengguna),
+        idValid(req.params.id),
+    );
+
+    return res.json({
+        success: true,
+        data: hasil,
+    });
 }
 
 export async function hapus(req, res) {
-  const id = idValid(req.params.id);
-  await data.hapusPenawaran(id);
-  return res.status(204).end();
+    await data.hapusPenawaran(
+        idValid(req.params.id),
+        req.pengguna.penyediaId,
+    );
+
+    return res.status(204).end();
 }

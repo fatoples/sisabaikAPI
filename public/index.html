@@ -1,119 +1,113 @@
+
 <!doctype html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SisaBaik API Chapter 7</title>
+    <title>SisaBaik - Katalog Makanan</title>
+
     <style>
-      body {
-        max-width: 70rem;
-        margin: auto;
-        padding: 1rem;
-        font:
-          1rem/1.5 system-ui,
-          sans-serif;
-        color: #18332d;
-      }
-      header,
-      section {
-        padding: 1rem;
-        margin-block: 1rem;
-        border: 1px solid #cbd8d3;
-        border-radius: 0.75rem;
-      }
-      form {
-        display: grid;
-        gap: 0.75rem;
-        max-width: 32rem;
-      }
-      label {
-        font-weight: 700;
-      }
-      input,
-      button {
-        padding: 0.7rem;
-        font: inherit;
-      }
-      button {
-        border: 0;
-        border-radius: 0.5rem;
-        background: #147d64;
-        color: white;
-        cursor: pointer;
-      }
-      .grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-      }
-      article {
-        padding: 1rem;
-        background: #eef8f4;
-        border-radius: 0.75rem;
-      }
-      .error {
-        color: #a61b1b;
-        font-weight: 700;
-      }
-      pre {
-        overflow-x: auto;
-        padding: 1rem;
-        background: #10231f;
-        color: #f3fbf8;
-        border-radius: 0.5rem;
-      }
-      :focus-visible {
-        outline: 3px solid #18332d;
-        outline-offset: 3px;
-      }
+        body {
+            max-width: 70rem;
+            margin: auto;
+            padding: 1rem;
+            font: 1rem/1.5 system-ui, sans-serif;
+            color: #18332d;
+        }
+
+        header, section {
+            padding: 1rem;
+            margin-block: 1rem;
+            border: 1px solid #cbd8d3;
+            border-radius: 0.75rem;
+        }
+
+        header {
+            background: #eef8f4;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        }
+
+        article {
+            padding: 1rem;
+            background: #eef8f4;
+            border-radius: 0.75rem;
+        }
+
+        button, .tombol {
+            display: inline-block;
+            padding: 0.7rem 1rem;
+            border: 0;
+            border-radius: 0.5rem;
+            background: #147d64;
+            color: white;
+            font: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #a61b1b;
+            font-weight: 700;
+        }
+
+        :focus-visible {
+            outline: 3px solid #18332d;
+            outline-offset: 3px;
+        }
     </style>
-    <script src="app.js" defer></script>
-  </head>
-  <body>
+
+    <script src="/app.js" defer></script>
+</head>
+
+<body>
     <a href="#konten-utama">Lewati ke konten utama</a>
+
     <header>
-      <p>Chapter 7 REST API dan PostgreSQL</p>
-      <h1>SisaBaik API</h1>
-      <p>Data fiktif untuk praktikum lokal, bukan layanan transaksi publik.</p>
+        <p>Platform Penawaran Makanan</p>
+        <h1>SisaBaik</h1>
+        <p>Makanan baik, harga lebih hemat, manfaat untuk sekitar.</p>
+
+        <a class="tombol" href="/auth.html">
+            Login / Daftar
+        </a>
     </header>
+
     <main id="konten-utama" tabindex="-1">
-      <section aria-labelledby="judul-katalog">
-        <h2 id="judul-katalog">Penawaran tersedia</h2>
-        <p id="status" role="status" aria-live="polite">Memuat data...</p>
-        <div id="katalog" class="grid"></div>
-      </section>
-      <section aria-labelledby="judul-pesanan">
-        <h2 id="judul-pesanan">Uji pembuatan pesanan</h2>
-        <p>
-          Pakai email akun pembeli fiktif pada database, misalnya
-          siti.pembeli@example.test. Email ini belum membuktikan login.
-        </p>
-        <form id="form-pesanan">
-          <label for="nama">Email pembeli latihan</label>
-          <input id="nama" name="emailPembeli" type="email" required />
-          <label for="penawaran">ID penawaran</label>
-          <input
-            id="penawaran"
-            name="penawaranId"
-            inputmode="numeric"
-            pattern="[1-9][0-9]{0,18}"
-            required
-          />
-          <label for="kuantitas">Kuantitas</label>
-          <input
-            id="kuantitas"
-            name="kuantitas"
-            type="number"
-            min="1"
-            max="1000"
-            step="1"
-            required
-          />
-          <button type="submit">Kirim pesanan latihan</button>
-        </form>
-        <p id="status-pesanan" role="status" aria-live="polite"></p>
-        <pre id="hasil-pesanan">Belum ada respons.</pre>
-      </section>
+        <section>
+            <h2>Penawaran Makanan Tersedia</h2>
+
+            <p id="status" role="status" aria-live="polite">
+                Memuat data...
+            </p>
+
+            <button id="muat-ulang" type="button">
+                Muat ulang katalog
+            </button>
+
+            <div id="katalog" class="grid"></div>
+        </section>
+
+        <section>
+            <h2>Ingin membeli atau menawarkan makanan?</h2>
+
+            <p>
+                Silakan login atau buat akun terlebih dahulu
+                untuk menggunakan fitur SisaBaik.
+            </p>
+
+            <a class="tombol" href="/auth.html">
+                Masuk ke akun SisaBaik
+            </a>
+        </section>
     </main>
-  </body>
+
+    <footer>
+        <p>SisaBaik - Menghubungkan pembeli dengan penyedia makanan.</p>
+    </footer>
+</body>
 </html>

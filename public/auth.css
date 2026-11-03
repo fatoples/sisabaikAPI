@@ -1,0 +1,91 @@
+
+:root {
+    font-family: system-ui, sans-serif;
+    color: #152820;
+    background: #f6faf7;
+}
+
+body {
+    max-width: 960px;
+    margin: auto;
+    padding: 1rem;
+}
+
+section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #bccfc2;
+    border-radius: 8px;
+}
+
+form {
+    max-width: 34rem;
+    margin: 1rem 0;
+}
+
+label {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+input,
+select,
+button {
+    font: inherit;
+    padding: 0.55rem;
+}
+
+input,
+select {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+button {
+    margin-top: 0.75rem;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #137546;
+    outline-offset: 2px;
+}
+
+.gulir {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 0.6rem;
+    text-align: left;
+    border: 1px solid #bccfc2;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #f0f3f1;
+    padding: 0.75rem;
+}
+
+#pesan {
+    min-height: 1.5rem;
+}
+
+[hidden] {
+    display: none !important;
+}

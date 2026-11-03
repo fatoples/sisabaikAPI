@@ -4,13 +4,16 @@ DROP TABLE IF EXISTS pengambilan, detail_pesanan, pesanan,
  penawaran, penyedia, pengguna CASCADE;
 
 CREATE TABLE pengguna (
- id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
- nama_lengkap VARCHAR(100) NOT NULL,
- email VARCHAR(254) NOT NULL UNIQUE,
- peran VARCHAR(20) NOT NULL
- CHECK (peran IN ('penyedia', 'pembeli')),
- aktif BOOLEAN NOT NULL DEFAULT TRUE,
- dibuat_pada TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nama_lengkap VARCHAR(100) NOT NULL,
+    email VARCHAR(254) NOT NULL UNIQUE,
+    kata_sandi_hash TEXT NOT NULL,
+    peran VARCHAR(20) NOT NULL
+        CHECK (peran IN ('penyedia', 'pembeli')),
+    versi_token BIGINT NOT NULL DEFAULT 0
+        CHECK (versi_token >= 0),
+    aktif BOOLEAN NOT NULL DEFAULT TRUE,
+    dibuat_pada TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE penyedia (
