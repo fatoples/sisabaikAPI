@@ -1,0 +1,9 @@
+BEGIN;
+
+ALTER TABLE pengguna
+    ADD COLUMN IF NOT EXISTS kata_sandi_hash TEXT,
+    ADD COLUMN IF NOT EXISTS versi_token INTEGER NOT NULL DEFAULT 0
+    CHECK (versi_token >= 0);
+
+COMMIT;
+    
