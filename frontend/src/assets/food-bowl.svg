@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+    <defs>
+        <radialGradient id="bg">
+            <stop stop-color="#F4E9D4"/>
+            <stop offset="1" stop-color="#E9DDC4"/>
+        </radialGradient>
+
+        <radialGradient id="plate">
+            <stop stop-color="#FFFFFF"/>
+            <stop offset=".8" stop-color="#FEFCF6"/>
+            <stop offset="1" stop-color="#E7E1D3"/>
+        </radialGradient>
+
+        <linearGradient id="bread" x2="0" y2="1">
+            <stop stop-color="#E7B263"/>
+            <stop offset="1" stop-color="#A86032"/>
+        </linearGradient>
+
+        <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.6">
+            <feDropShadow
+                dx="0"
+                dy="12"
+                stdDeviation="12"
+                flood-color="#776344"
+                flood-opacity=".17"
+            />
+        </filter>
+    </defs>
+
+    <rect width="640" height="420" fill="url(#bg)"/>
+
+    <path d="M15 20 140 0 170 420H74Z" fill="#DBE1CD"/>
+
+    <path
+        d="M38 0 115 420M66 0 177 420M0 110 157 82M0 210 174 182M0 310 191 282"
+        stroke="#F8F4E9"
+        stroke-width="3"
+        opacity=".6"
+    />
+
+    <g filter="url(#shadow)">
+        <circle cx="329" cy="205" r="161" fill="url(#plate)"/>
+        <circle cx="329" cy="205" r="136" fill="#E8E3D4"/>
+        <circle cx="329" cy="205" r="128" fill="#FFF8E7"/>
+    </g>
+
+    <g fill="#F7EBCD" stroke="#E9DBB9" stroke-width="1">
+        <ellipse cx="295" cy="221" rx="75" ry="67"/>
+
+        <path
+            d="m250 205 5 4m15-22 5 4m18 8 5 4m-39 25 5 4m34-14 5 4m-15 29 5 4m28-23 5 4m-20-59 5 4m27 16 5 4m-2 25 5 4m-52 33 5 4m32-2 5 4m-6-60 5 4m-52 22 5 4"
+            stroke="#D6C39E"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+    </g>
+
+    <g fill="#4C7E4A">
+        <path d="M258 102c-19-20-55-9-38 16-25 9-17 32 4 28-7 29 23 28 29 11 23 20 39 0 24-17 25-16 4-36-19-38z"/>
+
+        <path d="M360 111c-7-25-38-15-36 5-23-9-39 16-20 27-13 16 7 40 23 25 6 23 34 12 34-5 19 9 32-19 14-28 14-14 1-26-15-24z"/>
+    </g>
+
+    <g fill="#A1B567">
+        <path d="M232 123q27 13 23 42-18-11-23-42z"/>
+        <path d="M330 125q-16 11-19 36 24-9 19-36z"/>
+        <path d="M348 116q-12 18-3 38 20-18 3-38Z"/>
+    </g>
+
+    <g fill="url(#bread)" stroke="#975A36" stroke-width="1.5">
+        <path d="M363 174c-9-17 2-32 18-32 15 3 28 15 28 28 15 9 15 25 2 33-39 16-14 5-29-5-30-17z"/>
+
+        <path d="M372 207c-7-13 0-29 16-30 15 3 29 15 29 29 15 9 14 25 1 31-37 15-16 7-28-5-29-17z"/>
+    </g>
+
+    <g stroke="#F3D08C" stroke-width="6" stroke-linecap="round">
+        <path d="m382 160 35 18m-23-7 18 9m-24 13 36 19m-28-7 16 8"/>
+    </g>
+
+    <g fill="#D77B39">
+        <ellipse cx="284" cy="284" rx="14" ry="27" transform="rotate(-28 284 284)"/>
+        <ellipse cx="317" cy="289" rx="14" ry="28" transform="rotate(12 317 289)"/>
+        <ellipse cx="347" cy="279" rx="15" ry="28" transform="rotate(30 347 279)"/>
+    </g>
+
+    <g fill="#E8A44D">
+        <ellipse cx="284" cy="282" rx="6" ry="17" transform="rotate(-28 284 282)"/>
+        <ellipse cx="317" cy="287" rx="6" ry="18" transform="rotate(12 317 287)"/>
+        <ellipse cx="347" cy="277" rx="6" ry="17" transform="rotate(30 347 277)"/>
+    </g>
+
+    <g fill="#BB4A34">
+        <circle cx="287" cy="132" r="20"/>
+        <circle cx="395" cy="265" r="20"/>
+    </g>
+
+    <g fill="#E77852">
+        <circle cx="282" cy="126" r="6"/>
+    </g>
+
+    <g fill="#496D43">
+        <path d="m285 115 6 12 11-6-8 13-15-9z"/>
+        <path d="m391 250 6 11 9-7-6 14-14-8Z"/>
+    </g>
+
+    <g
+        fill="none"
+        stroke="#A5A79C"
+        stroke-width="6"
+        stroke-linecap="round"
+    >
+        <path d="M521 51v75q15 17 30 0V51m-15 0v56"/>
+    </g>
+
+    <path
+        d="M132 56c-24-14-51 5-34 21 19 18 40-2 34-21Z"
+        fill="#688E55"
+    />
+
+    <path
+        d="M579 309c23-15 52 6 34 22-21 17-40-4-34-22Z"
+        fill="#6C8E56"
+    />
+
+    <path
+        d="M536 75v275"
+        stroke="#A5A79C"
+        stroke-width="11"
+        stroke-linecap="round"
+    />
+</svg>

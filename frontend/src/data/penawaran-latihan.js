@@ -1,0 +1,122 @@
+export const penyediaLatihan = {
+    id: "1",
+    nama: "Lapau Uni Rina",
+};
+
+export function buatDataLatihan(waktu = Date.now()) {
+    const jam = 60 * 60 * 1000;
+    const dibuatPada = new Date(waktu).toISOString();
+
+    const buat = (
+        id,
+        penyediaId,
+        penyedia,
+        nama,
+        kategori,
+        normal,
+        hemat,
+        stok,
+        satuan,
+        status,
+        selisihJam,
+    ) => ({
+        id: String(id),
+        penyediaId: String(penyediaId),
+        penyedia,
+        nama,
+        kategori,
+        hargaNormal: normal,
+        hargaPenawaran: hemat,
+        stok,
+        satuan,
+        status,
+        berakhirPada: new Date(waktu + selisihJam * jam).toISOString(),
+        dibuatPada,
+    });
+
+    return [
+        buat(
+            1,
+            1,
+            "Lapau Uni Rina",
+            "Paket Roti Sore",
+            "roti",
+            30000,
+            15000,
+            6,
+            "paket",
+            "aktif",
+            24,
+        ),
+
+        buat(
+            2,
+            1,
+            "Lapau Uni Rina",
+            "Nasi Padang Hemat",
+            "makanan-siap-saji",
+            25000,
+            12000,
+            4,
+            "porsi",
+            "aktif",
+            2,
+        ),
+
+        buat(
+            3,
+            1,
+            "Lapau Uni Rina",
+            "Sayur Layak Olah",
+            "bahan-segar",
+            18000,
+            9000,
+            5,
+            "paket",
+            "aktif",
+            12,
+        ),
+
+        buat(
+            4,
+            1,
+            "Lapau Uni Rina",
+            "Draft Paket Besok",
+            "roti",
+            20000,
+            10000,
+            3,
+            "paket",
+            "draft",
+            24,
+        ),
+
+        buat(
+            5,
+            2,
+            "Roti Minang",
+            "Roti Stok Habis",
+            "roti",
+            12000,
+            6000,
+            0,
+            "paket",
+            "habis",
+            24,
+        ),
+
+        buat(
+            6,
+            2,
+            "Roti Minang",
+            "Paket Lewat Waktu",
+            "roti",
+            16000,
+            8000,
+            2,
+            "paket",
+            "aktif",
+            -1,
+        ),
+    ];
+}
