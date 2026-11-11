@@ -10,7 +10,9 @@
     "db:order": "node --env-file=.env scripts/create-order.js",
     "api:test:chapter7": "node scripts/uji-api.js",
     "auth:test": "node --env-file=.env scripts/uji-auth.js",
-    "penyedia:verifikasi": "node    --env-file=.env     scripts/verifikasi-penyedia.js"
+    "penyedia:verifikasi": "node    --env-file=.env     scripts/verifikasi-penyedia.js",
+    "db:migrate": "node --env-file=.env scripts/migrate.js"
+ 
   },
   "engines": {
     "node": ">=22"
@@ -19,7 +21,7 @@
     "bcryptjs": "3.0.3",
     "dotenv": "^18.0.9",
     "express": "5.1.0",
-    "express-rate-limit": "8.1.0",
+    "express-rate-limit": "^8.7.3",
     "helmet": "8.1.0",
     "jsonwebtoken": "9.0.3",
     "pg": "8.16.3"
