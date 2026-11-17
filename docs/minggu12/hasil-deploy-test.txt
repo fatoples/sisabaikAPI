@@ -1,0 +1,15 @@
+
+> sisabaik-api@1.6.0 deploy:test
+> node scripts/uji-deployment.js https://sisabaik-ilda.onrender.com
+
+PASS /healthz
+PASS /api/health
+PASS HTML Vue
+PASS aset JavaScript dan CSS
+PASS /api/tidak-ada menolak dengan 404
+PASS /api/auth/saya menolak dengan 401
+PASS /api/dashboard menolak dengan 401
+PASS /api/pesanan menolak dengan 401
+PASS /.env menolak dengan 404
+PASS /server.js menolak dengan 404
+Selesai: 10 pemeriksaan lulus. Tidak ada data ditulis.

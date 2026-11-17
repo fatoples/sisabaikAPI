@@ -1,0 +1,34 @@
+BUKTI PENGUJIAN ALUR TRANSAKSI SISABAIK
+Tanggal: 17 November 2026
+Aplikasi: https://sisabaik-ilda.onrender.com
+
+1. PENGUJIAN AKUN PENYEDIA
+- Registrasi akun penyedia: berhasil diuji.
+- Verifikasi akun penyedia melalui proses cloud: berhasil diuji.
+- Login akun penyedia: berhasil diuji.
+- Membuka dashboard penyedia: berhasil diuji.
+
+2. PENGUJIAN PENAWARAN MAKANAN
+- Membuat penawaran makanan dari akun penyedia: berhasil diuji.
+- Melihat penawaran yang dibuat melalui sisi pembeli: berhasil diuji.
+
+3. PENGUJIAN PEMESANAN
+- Melakukan pemesanan melalui akun pembeli: berhasil diuji.
+- Memeriksa pesanan pada dashboard pembeli: berhasil diuji.
+- Memeriksa pesanan pada dashboard penyedia: berhasil diuji.
+
+4. PENGUJIAN STATUS PESANAN
+- Mengubah status pesanan: berhasil diuji.
+
+5. PENGUJIAN AUTENTIKASI DAN AKSES
+- Login dan logout pengguna: berhasil diuji.
+- Membuka dashboard tanpa autentikasi: akses ditolak.
+- Membuka halaman utama melalui mode incognito: berhasil diuji.
+
+CATATAN
+Dokumentasi ini mencatat pengujian manual yang telah dilaporkan dilakukan. Bukti berupa tangkapan layar dan rincian data transaksi perlu dilampirkan jika tersedia.
+
+Pengujian pembatalan pesanan, pemulihan stok, konfirmasi penyedia, pengambilan makanan, dan pembayaran belum dicatat sebagai pengujian yang selesai.
+
+Kesimpulan:
+Pengujian manual telah mencakup beberapa alur utama aplikasi SisaBaik, mulai dari akun penyedia, penawaran makanan, pemesanan, hingga pengelolaan status pesanan. Pengujian lanjutan masih diperlukan untuk memeriksa keseluruhan proses transaksi.
