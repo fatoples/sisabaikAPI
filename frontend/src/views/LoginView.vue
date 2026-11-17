@@ -1,3 +1,4 @@
+
 <script setup>
 import Ikon from "../components/Ikon.vue";
 import makanan from "../assets/food-bowl.svg";
@@ -10,17 +11,20 @@ const router = useRouter();
 const route = useRoute();
 const lihatSandi = ref(false);
 const email = ref(
-  typeof route.query.email === "string" ? route.query.email : "",
+  typeof route.query.email === "string" ? route.query.email : ""
 );
 const kataSandi = ref("");
 const sibuk = ref(false);
 const error = ref("");
+
 const controller = new AbortController();
 onUnmounted(() => controller.abort());
+
 async function login() {
   if (sibuk.value || sesi.keluar) return;
   sibuk.value = true;
   error.value = "";
+
   try {
     const hasil = await api("/api/auth/login", {
       method: "POST",
@@ -35,7 +39,7 @@ async function login() {
         ? hasil.data.pengguna.statusVerifikasi === "terverifikasi"
           ? "/penyedia"
           : "/akun/penyedia"
-        : "/",
+        : "/"
     );
   } catch (e) {
     if (e.name !== "AbortError")
@@ -56,33 +60,41 @@ async function login() {
         Untuk Anda yang mencari makanan terjangkau, dan usaha yang ingin memberi
         kesempatan kedua pada stoknya.
       </p>
+
       <img
         :src="makanan"
         width="640"
         height="420"
         alt="Ilustrasi makanan dengan sayuran dan lauk"
       />
+
       <div class="login-story-bottom">
-        <Ikon nama="toko" /><span
-          >Pembeli & penyedia.<br /><strong
-            >Satu ekosistem kebaikan.</strong
-          ></span
-        >
+        <Ikon nama="toko" />
+        <span>
+          Pembeli &amp; penyedia.<br />
+          <strong>Satu ekosistem kebaikan.</strong>
+        </span>
       </div>
     </div>
+
     <div class="login-card">
-      <span class="outline-pill"><Ikon nama="aman" />Akses sesuai akun</span>
+      <span class="outline-pill">
+        <Ikon nama="aman" />Akses sesuai akun
+      </span>
       <h1 id="judul-login">Login SisaBaik</h1>
       <p class="muted">
         Senang melihat Anda kembali. Masuk untuk melanjutkan aktivitas Anda.
       </p>
+
       <p v-if="error" class="notice notice-error" role="alert">{{ error }}</p>
+
       <form class="form-login" @submit.prevent="login" :aria-busy="sibuk">
         <fieldset :disabled="sibuk || sesi.keluar">
           <legend class="sr-only">Identitas akun</legend>
+
           <div>
-            <label for="email">Email</label
-            ><input
+            <label for="email">Email</label>
+            <input
               id="email"
               v-model.trim="email"
               type="email"
@@ -92,6 +104,7 @@ async function login() {
               placeholder="nama@contoh.com"
             />
           </div>
+
           <div>
             <label for="kata-sandi">Kata sandi</label>
             <div class="password-field">
@@ -101,11 +114,14 @@ async function login() {
                 :type="lihatSandi ? 'text' : 'password'"
                 required
                 autocomplete="current-password"
-              /><button
+              />
+              <button
                 class="password-toggle button-quiet"
                 type="button"
                 :aria-label="
-                  lihatSandi ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi'
+                  lihatSandi
+                    ? 'Sembunyikan kata sandi'
+                    : 'Tampilkan kata sandi'
                 "
                 :aria-pressed="lihatSandi"
                 @click="lihatSandi = !lihatSandi"
@@ -114,11 +130,13 @@ async function login() {
               </button>
             </div>
           </div>
+
           <button class="button-wide" type="submit">
-            {{ sibuk ? "Memproses…" : "Login" }}<Ikon nama="panah" />
+            {{ sibuk ? "Memproses..." : "Login" }}<Ikon nama="panah" />
           </button>
         </fieldset>
       </form>
+
       <div class="login-help">
         <Ikon nama="info" />
         <p>
@@ -127,9 +145,10 @@ async function login() {
           dengan email dan kata sandi pilihan Anda.
         </p>
       </div>
-      <RouterLink class="back-link" to="/"
-        ><Ikon nama="kiri" />Jelajahi katalog terlebih dahulu</RouterLink
-      >
+
+      <RouterLink class="back-link" to="/">
+        <Ikon nama="kiri" />Jelajahi katalog terlebih dahulu
+      </RouterLink>
     </div>
   </section>
 </template>

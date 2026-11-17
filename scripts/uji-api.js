@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-const base = process.argv[9] ?? "http://127.0.0.1:3000";
+const base = process.argv[2] ?? "http://127.0.0.1:3000";
 const host = new URL(base).hostname;
 if (!["127.0.0.1", "localhost"].includes(host)) {
   throw new Error("Jalankan uji mutasi hanya pada server lokal latihan.");
@@ -69,7 +69,7 @@ try {
     200,
   );
   assert.equal(gabungan.body.meta.jumlah, 1);
-  assert.equal(gabungan.body.data.id, id);
+  assert.equal(gabungan.body.data[0].id, id);
   const kosong = await request(
     "GET",
     `/api/penawaran?q=${encodeURIComponent(tanda)}&limit=1&page=2`,
